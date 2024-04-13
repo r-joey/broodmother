@@ -1,0 +1,2 @@
+class StrategyNotFound(Exception):
+    pass
