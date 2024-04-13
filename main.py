@@ -33,36 +33,94 @@ def categories():
                 #     "website": 'www.smappliance.com', 
                 #     "url": 'https://www.smappliance.com/collections/refrigerators-and-freezers'
                 # }, 
-                {
-                    "retailer": 6,
-                    "website": 'western.com.ph', 
-                    "url": 'https://western.com.ph/shop/kitchen-appliances/refrigerators/'
-                } 
+                # {
+                #     "retailer": 6,
+                #     "website": 'western.com.ph', 
+                #     "url": 'https://western.com.ph/shop/kitchen-appliances/refrigerators/'
+                # } 
             ]
-           
         },
-        # { 
-        #     # refrigerators
-        #     "name": 1,
-        #     "targets": [
-        #         {
-        #             "website": 'ansons.ph',
-        #             "url": 'https://ansons.ph/product-category/refrigerator/'
-        #         },
-        #          {
-        #             "website": 'emcor.com.ph',
-        #             "url": 'https://emcor.com.ph/product-category/home-appliance/refrigerator/'
-        #         } 
-        #     ]
-           
-        # }
+        { 
+            # airconditioners
+            "category": 1,
+            "targets": [
+                # {
+                #     "retailer": 1,
+                #     "website": 'emcor.com.ph', 
+                #     "url": 'https://emcor.com.ph/product-category/home-appliance/air-conditioners/'
+                # },
+                # {
+                #     "retailer": 2,
+                #     "website": 'ansons.ph', 
+                #     "url": 'https://ansons.ph/product-category/air-conditioners/'
+                # },
+                # {
+                #     "retailer": 3,
+                #     "website": 'mangkosme.com', 
+                #     "url": 'https://mangkosme.com/collections/bodega-sale-aircon'
+                # }, 
+                # {
+                #     "retailer": 4,
+                #     "website": 'saversappliances.com.ph', 
+                #     "url": 'https://saversappliances.com.ph/product-category/air-conditioner-cooling/'
+                # }, 
+                # {
+                #     "retailer": 5,
+                #     "website": 'www.smappliance.com', 
+                #     "url": 'https://www.smappliance.com/collections/air-conditioner'
+                # }, 
+                # {
+                #     "retailer": 6,
+                #     "website": 'western.com.ph', 
+                #     "url": 'https://western.com.ph/shop/air-cooling/air-conditioners/'
+                # } 
+            ]
+        },
+{ 
+            # televisions
+            "category": 4,
+            "targets": [
+                # {
+                #     "retailer": 1,
+                #     "website": 'emcor.com.ph', 
+                #     "url": 'https://emcor.com.ph/product-category/video/'
+                # },
+                # {
+                #     "retailer": 2,
+                #     "website": 'ansons.ph', 
+                #     "url": 'https://ansons.ph/product-category/television/'
+                # },
+                # {
+                #     "retailer": 3,
+                #     "website": 'mangkosme.com', 
+                #     "url": 'https://mangkosme.com/collections/televisions'
+                # }, 
+                # {
+                #     "retailer": 4,
+                #     "website": 'saversappliances.com.ph', 
+                #     "url": 'https://saversappliances.com.ph/product-category/televisions/'
+                # }, 
+                # {
+                #     "retailer": 5,
+                #     "website": 'www.smappliance.com', 
+                #     "url": 'https://www.smappliance.com/collections/tv'
+                # }, 
+                # {
+                #     "retailer": 6,
+                #     "website": 'western.com.ph', 
+                #     "url": 'https://western.com.ph/shop/tv-entertainment/televisions/'
+                # } 
+            ]
+        },
     ]
 
 def insert_products(supabase: Client, products: list|dict): 
-    try: 
+    try:
+        print(f'[x] inserting {len(products)} products')
         supabase.table("products").insert(products).execute()
     except Exception as e:
         print(e)
+    print(f'[x] done')
 
 if __name__ == '__main__':
     # connect to supabase

@@ -96,18 +96,18 @@ class WesternComPhStrategy(SpiderStrategy):
         return str(value)
 
     def _get_price(self, product_tag: BeautifulSoup):
-        value = 'NOT_FOUND'
+        value = 0.0
 
         try:
             price_tag = product_tag.select_one('ins span.woocommerce-Price-amount.amount')
             if price_tag:
                 value = convert_price_to_float(price_tag.get_text())
         except Exception as e:
-            value = 'FAILED'
+            value = 0.0
             self.logger.exception(e)
 
-        return str(value)
-
+        return value
+    
     def _image_url(self, product_tag: BeautifulSoup):
         value = 'NOT_FOUND'
 
