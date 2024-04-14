@@ -195,16 +195,8 @@ def insert_products(supabase: Client, products: list|dict):
         print(e)
     print(f'[x] done')
 
-if __name__ == '__main__':
-    # connect to supabase
-    url: str = os.environ.get("SUPABASE_URL")
-    key: str = os.environ.get("SUPABASE_KEY")
-    supabase: Client = create_client(url, key)
-
-    # run spider 
-  
+def start_crawling(supabase: Client): 
     try:
-
         for category in categories():
             category_name = category['category']
             print(f'[x] scraping for category: {category_name}')
@@ -219,9 +211,30 @@ if __name__ == '__main__':
                     product['category'] = category_name
                     product['retailer'] = retailer
                 insert_products(supabase, products)
-                
     except Exception as e:
         print(e)
+
+if __name__ == '__main__':
+
+    try:
+        # connect to supabase
+        url: str = os.environ.get("SUPABASE_URL")
+        key: str = os.environ.get("SUPABASE_KEY")
+        spider_email = os.environ.get("SPIDER_EMAIL")
+        spider_password = os.environ.get("SPIDER_PASSWORD")
+        supabase: Client = create_client(url, key)
+        supabase.auth.sign_in_with_password({"email": spider_email, "password": spider_password})  
+        # run spider
+        start_crawling(supabase)
+    except Exception as e:
+        print(e)
+    finally: 
+        supabase.auth.sign_out()
+        print('[x] done')
+
+
+
+
 
 
 
