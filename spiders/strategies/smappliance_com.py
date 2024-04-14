@@ -1,3 +1,4 @@
+import random
 from .base import SpiderStrategy
 from ..helpers import convert_price_to_float
 import logging
@@ -65,7 +66,8 @@ class SmapplianceComStrategy(SpiderStrategy):
                 if next_page:
                     self.url = next_page
                     next_page_number += 1
-                    time.sleep(10)
+                    delays = [10, 13, 15, 17, 20]
+                    time.sleep(random.choice(delays))
                 else:
                     break
             else:

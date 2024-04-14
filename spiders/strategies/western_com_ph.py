@@ -1,3 +1,4 @@
+import random
 from .base import SpiderStrategy
 from ..helpers import convert_price_to_float
 import logging
@@ -60,7 +61,8 @@ class WesternComPhStrategy(SpiderStrategy):
                         products_list.append(data)
                 if next_page:
                     self.url = next_page['href']
-                    time.sleep(10)
+                    delays = [10, 13, 15, 17, 20]
+                    time.sleep(random.choice(delays))
                 else:
                     break
             else:

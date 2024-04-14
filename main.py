@@ -4,43 +4,7 @@ from supabase import create_client, Client
 
 def categories():
     return [
-        { 
-            # refrigerators
-            "category": 2,
-            "targets": [
-                # {
-                #     "retailer": 1,
-                #     "website": 'emcor.com.ph', 
-                #     "url": 'https://emcor.com.ph/product-category/home-appliance/refrigerator/'
-                # },
-                # {
-                #     "retailer": 2,
-                #     "website": 'ansons.ph', 
-                #     "url": 'https://ansons.ph/product-category/refrigerator/'
-                # },
-                # {
-                #     "retailer": 3,
-                #     "website": 'mangkosme.com', 
-                #     "url": 'https://mangkosme.com/collections/bodega-sale-refrigerator'
-                # }, 
-                # {
-                #     "retailer": 4,
-                #     "website": 'saversappliances.com.ph', 
-                #     "url": 'https://saversappliances.com.ph/product-category/refrigerator-freezer-chiller/'
-                # }, 
-                # {
-                #     "retailer": 5,
-                #     "website": 'www.smappliance.com', 
-                #     "url": 'https://www.smappliance.com/collections/refrigerators-and-freezers'
-                # }, 
-                # {
-                #     "retailer": 6,
-                #     "website": 'western.com.ph', 
-                #     "url": 'https://western.com.ph/shop/kitchen-appliances/refrigerators/'
-                # } 
-            ]
-        },
-        { 
+         { 
             # airconditioners
             "category": 1,
             "targets": [
@@ -76,7 +40,79 @@ def categories():
                 # } 
             ]
         },
-{ 
+        { 
+            # refrigerators
+            "category": 2,
+            "targets": [
+                # {
+                #     "retailer": 1,
+                #     "website": 'emcor.com.ph', 
+                #     "url": 'https://emcor.com.ph/product-category/home-appliance/refrigerator/'
+                # },
+                # {
+                #     "retailer": 2,
+                #     "website": 'ansons.ph', 
+                #     "url": 'https://ansons.ph/product-category/refrigerator/'
+                # },
+                # {
+                #     "retailer": 3,
+                #     "website": 'mangkosme.com', 
+                #     "url": 'https://mangkosme.com/collections/bodega-sale-refrigerator'
+                # }, 
+                # {
+                #     "retailer": 4,
+                #     "website": 'saversappliances.com.ph', 
+                #     "url": 'https://saversappliances.com.ph/product-category/refrigerator-freezer-chiller/'
+                # }, 
+                # {
+                #     "retailer": 5,
+                #     "website": 'www.smappliance.com', 
+                #     "url": 'https://www.smappliance.com/collections/refrigerators-and-freezers'
+                # }, 
+                # {
+                #     "retailer": 6,
+                #     "website": 'western.com.ph', 
+                #     "url": 'https://western.com.ph/shop/kitchen-appliances/refrigerators/'
+                # } 
+            ]
+        }, 
+        { 
+            # washing machines
+            "category": 3,
+            "targets": [
+                {
+                    "retailer": 1,
+                    "website": 'emcor.com.ph', 
+                    "url": 'https://emcor.com.ph/product-category/home-appliance/small-appliances/'
+                },
+                {
+                    "retailer": 2,
+                    "website": 'ansons.ph', 
+                    "url": 'https://ansons.ph/product-category/small-appliance/'
+                },
+                {
+                    "retailer": 3,
+                    "website": 'mangkosme.com', 
+                    "url": 'https://mangkosme.com/collections/bodega-sale-small-appliances'
+                }, 
+                {
+                    "retailer": 4,
+                    "website": 'saversappliances.com.ph', 
+                    "url": 'https://saversappliances.com.ph/product-category/kitchen-appliances/'
+                }, 
+                {
+                    "retailer": 5,
+                    "website": 'www.smappliance.com', 
+                    "url": 'https://www.smappliance.com/collections/small-kitchen-appliances'
+                }, 
+                {
+                    "retailer": 6,
+                    "website": 'western.com.ph', 
+                    "url": 'https://western.com.ph/shop/small-appliances/'
+                } 
+            ]
+        },
+        { 
             # televisions
             "category": 4,
             "targets": [
@@ -112,6 +148,43 @@ def categories():
                 # } 
             ]
         },
+        { 
+            # washing machines
+            "category": 5,
+            "targets": [
+                # {
+                #     "retailer": 1,
+                #     "website": 'emcor.com.ph', 
+                #     "url": 'https://emcor.com.ph/product-category/home-appliance/washing-machines/'
+                # },
+                # {
+                #     "retailer": 2,
+                #     "website": 'ansons.ph', 
+                #     "url": 'https://ansons.ph/product-category/washing-machine/'
+                # },
+                # {
+                #     "retailer": 3,
+                #     "website": 'mangkosme.com', 
+                #     "url": 'https://mangkosme.com/collections/bodega-sale-washing-machine'
+                # }, 
+                # {
+                #     "retailer": 4,
+                #     "website": 'saversappliances.com.ph', 
+                #     "url": 'https://saversappliances.com.ph/product-category/washer-dryer/'
+                # }, 
+                # {
+                #     "retailer": 5,
+                #     "website": 'www.smappliance.com', 
+                #     "url": 'https://www.smappliance.com/collections/washers-and-dryers'
+                # }, 
+                # {
+                #     "retailer": 6,
+                #     "website": 'western.com.ph', 
+                #     "url": 'https://western.com.ph/shop/washers-dryers/'
+                # } 
+            ]
+        }
+        
     ]
 
 def insert_products(supabase: Client, products: list|dict): 
